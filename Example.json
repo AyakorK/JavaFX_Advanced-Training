@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Albert",
+    "student": true,
+    "school": "Coding-Factory",
+    "age": 20
+  },
+  {
+    "name": "Bert",
+    "student": false,
+    "school": "Coding-Factory",
+    "age": 20
+  },
+  {
+      "name": "Charles",
+      "student": true,
+      "school": "ESIEE-IT",
+      "age": 20
+  },
+  {
+      "name": "David",
+      "student": false,
+      "school": "ESIEE-IT",
+      "age": 20
+  }
+]
