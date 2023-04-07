@@ -9,27 +9,48 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static java.lang.Integer.parseInt;
+
 public class FormController implements Initializable {
     @FXML
-    private Button submitBtn;
-
+    TextField note1Field;
     @FXML
-    TextField nameField;
-
+    TextField note2Field;
     @FXML
-    Label nameLabel;
-
+    TextField coef1Field;;
     @FXML
-    Label resultLabel;
+    TextField coef2Field;
 
-    @FXML
-    public void submit() {
-        resultLabel.setText(nameField.getText());
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        nameLabel.setText("Name");
-        submitBtn.setText("Submit");
+        // If note1 and coef1 are not empty, then calculate the note /20
+        if (!note1Field.getText().isEmpty() && !coef1Field.getText().isEmpty()) {
+            coef2Field.setText("20");
+        }
+    }
+
+    @FXML
+    public void calculate() {
+        if (note1Field.getText().isEmpty() || coef1Field.getText().isEmpty()) {
+            return;
+        }
+
+        if (!note1Field.getText().matches("[0-9]+") || !coef1Field.getText().matches("[0-9]+")) {
+            return;
+        }
+
+        int note1 = parseInt(note1Field.getText());
+        int coef1 = parseInt(coef1Field.getText());
+
+        if (coef1 == 0) {
+            return;
+        }
+
+        // Calculate the note /20
+        int note2 = (note1 * 20) / coef1;
+
+        coef2Field.setText("20");
+        note2Field.setText(String.valueOf(note2));
     }
 }
